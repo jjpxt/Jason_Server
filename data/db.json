@@ -17,6 +17,12 @@
       "title": "json server não cria mais id como numeros, agora são todos strings",
       "body": "Isso acontece porque você está usando a versão 1.x (beta) do json-server (a mais recente em 2026).\nNessa versão, o comportamento mudou de propósito:id sempre é tratado como string internamente.\nQuando você faz um POST sem fornecer um \"id\" no body, ele gera automaticamente um ID aleatório curto (tipo 4 caracteres hexadecimais, como \"54ae\", \"c917\" etc.).\nNão existe mais autoincremento numérico (1 → 2 → 3...) nessa versão, mesmo se os IDs existentes forem números. É o design novo: \"id is always a string and will be generated for you if missing\".\n\nDowngrade para a versão estável antiga (v0.17.x) — onde autoincremento numérico funciona\nIsso resolve 100% o que você quer (IDs sequenciais 7, 8, 9...).\nPassos: npm uninstall json-server - npm install json-server@0.17.4\n\n\n",
       "likes": 0
+    },
+    {
+      "id": "4fd1",
+      "title": "para rodar",
+      "body": "npx json-server --watch data/db.json",
+      "likes": 0
     }
   ]
 }
